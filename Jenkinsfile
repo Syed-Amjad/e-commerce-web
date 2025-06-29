@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = 'syedamjad/static-web'
+        IMAGE_NAME = 'amjad835/static-web'
         TAG = 'latest'
     }
 
