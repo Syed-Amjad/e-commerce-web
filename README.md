@@ -1,6 +1,3 @@
----
-
-````markdown
 # 🛒 E-Commerce Web App – DevOps Project (Docker | Kubernetes | Jenkins | Monitoring)
 
 This repository contains a fully working **E-Commerce Web Application** built with HTML/CSS/JS, packaged using **Docker**, deployed on **Kubernetes**, with **CI/CD via Jenkins**, and **monitoring using Prometheus and Grafana** — hosted on an **Azure Virtual Machine**.
