@@ -1,3 +1,6 @@
+---
+
+````markdown
 # 🛒 E-Commerce Web App – DevOps Project (Docker | Kubernetes | Jenkins | Monitoring)
 
 This repository contains a fully working **E-Commerce Web Application** built with HTML/CSS/JS, packaged using **Docker**, deployed on **Kubernetes**, with **CI/CD via Jenkins**, and **monitoring using Prometheus and Grafana** — hosted on an **Azure Virtual Machine**.
@@ -18,13 +21,13 @@ This repository contains a fully working **E-Commerce Web Application** built wi
 
 ## 🧱 Technologies Used
 
-| Category        | Tools                            |
-|----------------|----------------------------------|
-| CI/CD Pipeline | GitHub, Jenkins, Webhooks        |
-| Containerization| Docker, Docker Hub               |
-| Orchestration  | Kubernetes (Minikube)            |
-| Monitoring     | Prometheus, Grafana              |
-| Cloud          | Azure Virtual Machine (Ubuntu)   |
+| Category         | Tools                            |
+|------------------|----------------------------------|
+| CI/CD Pipeline   | GitHub, Jenkins, Webhooks        |
+| Containerization | Docker, Docker Hub               |
+| Orchestration    | Kubernetes (Minikube)            |
+| Monitoring       | Prometheus, Grafana              |
+| Cloud            | Azure Virtual Machine (Ubuntu)   |
 
 ---
 
@@ -44,57 +47,90 @@ This repository contains a fully working **E-Commerce Web Application** built wi
 ├── ansible/
 │   ├── hosts.ini
 │   └── playbook.yml
+````
 
-```bash
-
+---
 
 ## 🚀 How to Run This Project (Step-by-Step)
-1️⃣ Fork & Clone
+
+### 1️⃣ Fork & Clone
+
+```bash
 git clone https://github.com/Syed-Amjad/e-commerce-web.git
 cd e-commerce-web
+```
 
-2️⃣ Docker: Build & Run Locally
+### 2️⃣ Docker: Build & Run Locally
+
+```bash
 docker build -t amjad835/static-web .
 docker run -d -p 8080:80 amjad835/static-web
-Access the site: http://localhost:8080
+```
 
-3️⃣ Docker Compose (Optional)
+➡️ Access the site: [http://localhost:8080](http://localhost:8080)
+
+### 3️⃣ Docker Compose (Optional)
+
+```bash
 docker-compose up -d
+```
 
-4️⃣ Kubernetes Deployment (Using Minikube)
+### 4️⃣ Kubernetes Deployment (Using Minikube)
 
+```bash
 kubectl apply -f k8s/deployment.yaml
 kubectl apply -f k8s/service.yaml
 
 # Access the app (assuming NodePort)
 kubectl get svc
 kubectl port-forward svc/static-web-service 8080:80
+```
 
-5️⃣ Jenkins CI/CD Pipeline
+### 5️⃣ Jenkins CI/CD Pipeline
+
 Install Jenkins and start it:
+
+```bash
 java -jar jenkins.war --httpPort=8081
+```
 
+Configure GitHub Webhook:
+**Payload URL:** `http://<your-ip>:8081/github-webhook/`
+Create a pipeline job pointing to your `devops-branch`.
 
-Payload URL: http://<your-ip>:8081/github-webhook/
-Create a pipeline job pointing to your devops-branch
+### 6️⃣ Monitoring with Prometheus and Grafana
 
-6️⃣ Monitoring with Prometheus and Grafana
-# Run Prometheus and Grafana using Docker
+Run Prometheus and Grafana using Docker:
+
+```bash
 cd monitoring
 docker-compose up -d
+```
 
-# Prometheus: http://<your-ip>:9090
-# Grafana:    http://<your-ip>:3000
-# Default login: admin / admin
+* Prometheus: [http://<your-ip>:9090](http://<your-ip>:9090)
+* Grafana: [http://<your-ip>:3000](http://<your-ip>:3000)
 
-# Add Prometheus as data source in Grafana and import Kubernetes dashboards
+  * **Default login:** `admin / admin`
 
-📎 GitHub Repository
-🔗 https://github.com/Syed-Amjad/e-commerce-web
+➡️ Add Prometheus as data source in Grafana and import Kubernetes dashboards.
+
+---
+
+## 📎 GitHub Repository
+
+🔗 [https://github.com/Syed-Amjad/e-commerce-web](https://github.com/Syed-Amjad/e-commerce-web)
 
 Feel free to fork this repository, explore the pipeline, and practice full DevOps deployment!
-🙋‍♂️ Author
-Syed Amjad Ali
+
+---
+
+## 🙋‍♂️ Author
+
+**Syed Amjad Ali**
 DevOps & AI Enthusiast | Software Developer
 📍 Working on real-world AI + Cloud + DevOps projects
-🌐 http://www.linkedin.com/in/syed-amjad-ali-4188002a0
+🌐 [LinkedIn](http://www.linkedin.com/in/syed-amjad-ali-4188002a0)
+
+```
+
+
