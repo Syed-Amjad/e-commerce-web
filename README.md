@@ -1,58 +1,98 @@
-# E-Commerce Web Application
+# 🛒 E-Commerce Web App – DevOps Project (Docker | Kubernetes | Jenkins | Monitoring)
 
-## Overview
+This repository contains a fully working **E-Commerce Web Application** built with HTML/CSS/JS, packaged using **Docker**, deployed on **Kubernetes**, with **CI/CD via Jenkins**, and **monitoring using Prometheus and Grafana** — hosted on an **Azure Virtual Machine**.
 
-This project serves as a practical exercise to test your DevOps skills. It involves working with a sample e-commerce web application that allows users to browse and purchase kids' beds. Your task is to apply DevOps practices to containerize the application, set up CI/CD pipelines, and ensure proper validation and testing.
+---
 
-## Project Tasks
+## 📌 Project Features
 
-1. **Fork the Repository**
-   - Begin by forking this repository to your own GitHub account.
-     
-2. **Ansible Automation (Same Local Machine)**
-   - Use Ansible to automate app deployment and updates:
-     - Create ansible/ folder with `host` file:
-       `[local]`
-       `127.0.0.1 ansible_connection=local`
-     - install and verify basics tools for this repo e.g. `git` and `docker`
+✅ Static frontend (HTML, CSS, JS) for a simple kids' beds e-commerce store  
+✅ Dockerized with best practices  
+✅ Kubernetes deployment with `Deployment` and `Service` YAMLs  
+✅ CI/CD pipeline with **Jenkins** and **GitHub Webhook Integration**  
+✅ **Prometheus + Grafana** stack for full monitoring and dashboard setup  
+✅ All running on a VM: **Azure Standard D2s v3 (2 vCPUs, 8 GiB RAM)**  
+✅ Git push triggers Jenkins → builds Docker image → pushes to Docker Hub → deploys to K8s
 
-3. **Clone and create a Separate Branch**
-   - Clone and create a new branch named `devops-branch` in your forked repository. This branch will be used for all your DevOps-related tasks.
+---
 
-4. **Containerize the Application**
-   - Write a `Dockerfile` to containerize the e-commerce web application. Ensure that the Dockerfile is properly configured to build an image for the application. Apply best practices in Dockerfile creation, such as:
-     - Minimizing the number of layers
-     - Using a small base image
-     - Caching dependencies effectively
-     - Cleaning up unnecessary files to reduce the image size 
+## 🧱 Technologies Used
 
-5. **Set Up Docker Compose**
-   - Create a `docker-compose.yml` file to deploy the application using Docker Compose. Although PostgreSQL is not used in this application, ensure that the Docker Compose setup is properly configured for the application container.
+| Category        | Tools                            |
+|----------------|----------------------------------|
+| CI/CD Pipeline | GitHub, Jenkins, Webhooks        |
+| Containerization| Docker, Docker Hub               |
+| Orchestration  | Kubernetes (Minikube)            |
+| Monitoring     | Prometheus, Grafana              |
+| Cloud          | Azure Virtual Machine (Ubuntu)   |
 
-6. **Kubernetes (Local with Minikube or Kind)**
-   - Deploy your app in a local Kubernetes cluster:
-   - Create:
-     - k8s/deployment.yaml
-     - k8s/service.yaml
-   - Start Minikube or Kind and apply:
-     - kubectl apply -f k8s/
-     - kubectl port-forward svc/ecommerce-service 8080:80
+---
 
-7. **Deploy Using CI/CD Pipeline**
-   - Use the `Dockerfile` to deploy the application by setting up a CI/CD pipeline. This pipeline should be configured to run only for the `devops-branch`, not for the master branch.
-   - Optionally
-     - Create new branches named `compose-branch` and `k8s-branch` in your forked repository. These branch will be used for all your docker compose and Kubernetes related tasks.
-     - Use the `docker-compose.yml` to deploy the application by setting up a CI/CD pipeline. This pipeline should be configured to run only for the `compose-branch`, not for the master branch.
-     - Use the `deployment.yaml` and `service.yaml` to deploy the application by setting up a CI/CD pipeline. This pipeline should be configured to run only for the `k8s-branch`, not for the master branch.
+## 📁 Project Structure
 
-8. **Validation and Testing**
-   - Add necessary validation and testing in your CI/CD to confirm that the application runs correctly on a specific port. Ensure that all functionalities are working as expected and the deployment is stable.
+```bash
+.
+├── index.html
+├── styles.css
+├── script.js
+├── Dockerfile
+├── docker-compose.yml
+├── Jenkinsfile
+├── k8s/
+│   ├── deployment.yaml
+│   └── service.yaml
+├── ansible/
+│   ├── hosts.ini
+│   └── playbook.yml
 
-9. **Prometheus & Grafana Monitoring**
-   - Monitor Docker containers and host system locally:
-   - Create monitoring/docker-compose.yml with:
-     - prometheus
-     - node_exporter
-     - grafana
-___
-___
+🚀 How to Run This Project (Step-by-Step)
+1️⃣ Fork & Clone
+git clone https://github.com/Syed-Amjad/e-commerce-web.git
+cd e-commerce-web
+
+2️⃣ Docker: Build & Run Locally
+docker build -t amjad835/static-web .
+docker run -d -p 8080:80 amjad835/static-web
+Access the site: http://localhost:8080
+
+3️⃣ Docker Compose (Optional)
+docker-compose up -d
+
+4️⃣ Kubernetes Deployment (Using Minikube)
+
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+
+# Access the app (assuming NodePort)
+kubectl get svc
+kubectl port-forward svc/static-web-service 8080:80
+
+5️⃣ Jenkins CI/CD Pipeline
+Install Jenkins and start it:
+java -jar jenkins.war --httpPort=8081
+
+
+Payload URL: http://<your-ip>:8081/github-webhook/
+Create a pipeline job pointing to your devops-branch
+
+6️⃣ Monitoring with Prometheus and Grafana
+# Run Prometheus and Grafana using Docker
+cd monitoring
+docker-compose up -d
+
+# Prometheus: http://<your-ip>:9090
+# Grafana:    http://<your-ip>:3000
+# Default login: admin / admin
+
+# Add Prometheus as data source in Grafana and import Kubernetes dashboards
+
+📎 GitHub Repository
+🔗 https://github.com/Syed-Amjad/e-commerce-web
+
+Feel free to fork this repository, explore the pipeline, and practice full DevOps deployment!
+🙋‍♂️ Author
+Syed Amjad Ali
+DevOps & AI Enthusiast | Software Developer
+📍 Working on real-world AI + Cloud + DevOps projects
+🌐 http://www.linkedin.com/in/syed-amjad-ali-4188002a0
+
