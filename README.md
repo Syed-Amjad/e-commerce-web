@@ -45,9 +45,10 @@ This repository contains a fully working **E-Commerce Web Application** built wi
 │   ├── hosts.ini
 │   └── playbook.yml
 
+```bash
 
----
-🚀 How to Run This Project (Step-by-Step)
+
+## 🚀 How to Run This Project (Step-by-Step)
 1️⃣ Fork & Clone
 git clone https://github.com/Syed-Amjad/e-commerce-web.git
 cd e-commerce-web
