@@ -45,6 +45,8 @@ This repository contains a fully working **E-Commerce Web Application** built wi
 │   ├── hosts.ini
 │   └── playbook.yml
 
+
+---
 🚀 How to Run This Project (Step-by-Step)
 1️⃣ Fork & Clone
 git clone https://github.com/Syed-Amjad/e-commerce-web.git
@@ -95,4 +97,3 @@ Syed Amjad Ali
 DevOps & AI Enthusiast | Software Developer
 📍 Working on real-world AI + Cloud + DevOps projects
 🌐 http://www.linkedin.com/in/syed-amjad-ali-4188002a0
-
